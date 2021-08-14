@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to right, #f3f2f2d9, #f1e7ddc0), url("https://www.reviewjournal.com/wp-content/uploads/2019/10/12850327_web1_webGettyImages-866378862.jpg?crop=1");
+  background-size: 900pt;
+  background-repeat: repeat;
 }
 
 code {
