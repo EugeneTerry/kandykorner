@@ -6,25 +6,35 @@ import { ProductProvider } from "./Product/ProductProvider"
 import { ProductList } from "./Product/ProductList"
 import { ProductTypeList} from "./PoductType/ProductTypeList"
 import { ProductTypeProvider } from "./PoductType/ProductTypeProvider";
-
+import { EmployeeList } from "./Employees/EmployeeList";
+import { EmployeeProvider } from "./Employees/EmployeeProvider";
+import { EmployeeForm } from "./Employees/EmployeeForm";
 export const ApplicationViews = () => {
   return (
     <>
       <LocationProvider>
         <ProductProvider>
           <ProductTypeProvider>
-          <Route exact path="/">
+            <EmployeeProvider>
+              <Route exact path="/">
                 <ProductTypeList />
               </Route>
-              <Route path="/products">
+              <Route exact path="/products">
                 <ProductList />
               </Route>
-              <Route path="/productTypes">
+              <Route exact path="/productTypes">
                 <ProductTypeList />
               </Route>
-              <Route path="/locations">
+              <Route exact path="/locations">
                 <LocationList />
               </Route>
+              <Route exact path="/employees">
+                <EmployeeList />
+              </Route>
+              <Route exact path="/employees/create">
+                <EmployeeForm />
+              </Route>
+              </EmployeeProvider>
           </ProductTypeProvider>
         </ProductProvider>
       </LocationProvider>

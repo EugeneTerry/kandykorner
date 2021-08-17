@@ -11,6 +11,8 @@ export const LocationList = () => {
   }, []);
 
   return (
+    <>
+    <h2>Locations</h2>
     <section className="locations">
       {locations.map((location) => {
         return (
@@ -23,5 +25,6 @@ export const LocationList = () => {
         );
       })}
     </section>
+    </>
   );
 };
