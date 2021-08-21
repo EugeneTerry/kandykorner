@@ -11,8 +11,8 @@ export const EmployeeForm = () => {
   const [employee, setEmployee] = useState({
     name: "",
     locationId: 0,
-    manager: true,
-    fulltime: true,
+    manager: "",
+    fulltime: "",
     hourly: 0
   });
   const history = useHistory();
@@ -38,6 +38,10 @@ export const EmployeeForm = () => {
       const newEmployee = {
         name: employee.name,
         locationId: locationId,
+        manager: employee.manager,
+        fulltime: employee.fulltime,
+        hourly: employee.hourly
+
       };
       addEmployee(newEmployee).then(() => history.push("/employees"));
     }
@@ -74,7 +78,7 @@ export const EmployeeForm = () => {
             <option value="0">Select a location</option>
             {locations.map((l) => (
               <option key={l.id} value={l.id}>
-                {l.name}
+                {l.address}
               </option>
             ))}
           </select>
@@ -83,31 +87,37 @@ export const EmployeeForm = () => {
       <fieldset>
         <div className="form-group">
           <label htmlFor="manager"> Manager:</label>
-          <input
-            type="Boolean"
+          <select
+            name="manager"
             id="manager"
             required
             utoFocus
             className="form-control"
             placeholder="Manager"
             value={employee.manager}
-            onChange={handleControlledInputChange}
-          />
+            onChange={handleControlledInputChange}>
+            <option value="0">Yes or No</option>
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+          </select>
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
           <label htmlFor="fulltime"> Fulltime:</label>
           <select
-            type="boolean"
+            name="fulltime"
             id="fulltime"
             required
             utoFocus
             className="form-control"
             placeholder="Fulltime"
             value={employee.fulltime}
-            onChange={handleControlledInputChange}
-          />
+            onChange={handleControlledInputChange}>
+            <option value="0">Yes or No</option>
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+          </select>
         </div>
       </fieldset>
       <fieldset>
